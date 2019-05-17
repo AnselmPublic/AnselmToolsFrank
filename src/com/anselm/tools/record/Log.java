@@ -353,10 +353,9 @@ public class Log {
 	}
 
 	/**
-	 * &emsp;&emsp;&emsp;&emsp;<em><b>setLogFile</em></b><BR/>
+	 * &emsp;&emsp;&emsp;&emsp;<em><b>getMethodName</em></b><BR/>
 	 * <BR/>
-	 * &emsp;<font size= "1">&emsp;setLogFile({@linkplain String}
-	 * filePath)</font><BR/>
+	 * &emsp;<font size= "1">&emsp;getMethodName()</font><BR/>
 	 * <BR/>
 	 * 
 	 * This function will get who calls this function.
@@ -365,6 +364,7 @@ public class Log {
 	 */
 	public String getMethodName() {
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+
 		if (stackTraceElements.length > 2) {
 			for (int i = 2; i < stackTraceElements.length; i++) {
 				if (stackTraceElements[i].getMethodName().startsWith("log"))
@@ -409,7 +409,7 @@ public class Log {
 		if (ini != null) {
 			getPatternInConfig(ini);
 		} else {
-			logger("Ini is null, please initial Ini.java");
+			logger("Ini is null, please initial Ini.java or check input Ini");
 		}
 	}
 
